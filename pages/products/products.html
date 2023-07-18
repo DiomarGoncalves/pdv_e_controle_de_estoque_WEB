@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,8 +196,95 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
-        </div>
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="lead">Produtos</p>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="form-label">Cód.</div>
+                    <input class="form-control" name="code" value="">
+                  </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="form-label">Cód. de Barras</div>
+                    <input class="form-control" name="barcode" value="">
+                  </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="form-label">Categoria</div>
+                    <select class="form-control" name="categories">
+                      <option></option>
+                      <option value="dff24bac-8ef6-4df2-96a3-ecfc48e7603c">Sem Categoria</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="form-label">Descrição</div>
+                    <input class="form-control" name="name" value="">
+                  </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="form-label">Exibit até</div>
+                    <select class="form-control" name="end_count">
+                      <option value="10">10 Itens</option>
+                      <option value="15">15 Itens</option>
+                      <option value="20">20 Itens</option>
+                      <option value="30">30 Itens</option>
+                      <option value="50">50 Itens</option>
+                      <option value="100">100 Itens</option>
+                      <option value="300">300 Itens</option>
+                      <option value="500">500 Itens</option>
+                    </select>
+                  </div>
+                  <div class="col-12"></div>
+                  <div class="col-xs-12 col-md-4 col-lg-4 mt-2 mx-xs-auto">
+                    <button class="btn btn-primary">Filtrar Produtos</button>
+                  </div>
+                  <div class="col-12"></div>
+                  <div class="col-xs-12 col-md-12 col-lg-12 mt-2 mx-xs-auto">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Cód.</th>
+                          <th>Descrição</th>
+                          <th>Uni.</th>
+                          <th>NCM</th>
+                          <th>CFOP</th>
+                          <th>Valor</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>        
       </div>
     </div>
 </body>

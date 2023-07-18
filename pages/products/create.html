@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,7 +196,275 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="py-2 mb-5 container">
+            <div class="d-flex flex-row-reverse">
+              <button class="btn btn-outline-danger">Precisa de ajuda?</button>
+            </div>
+            <h2 class="text-center">Cadastrar Produto Nº0</h2>
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-primary">Importar via XML ou CSV</button>
+                <div class="form-group">
+                  <p class="mb-1 lead">Código de Barras</p>
+                  <div class="form-group row">
+                    <div class="col-sm-8 col-9">
+                      <input controlid="product-barcode" data-input-create-product="true" id="create-input-search-barcode" class="form-control" value="">
+                    </div>
+                    <div class="col-sm-4 col-3">
+                      <button id="create-product-button-search-barcode" title="Importar dados a partir do código de barras" disabled="" data-create-product-button-search-barcode="true" type="button" class="btn btn-primary btn-block">
+                        <span class="d-md-inline d-xs-none">Importar Produto</span>
+                        <i class="fa fa-search ml-1"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p class="mb-1 lead">Nome</p>
+                  <input data-create-product-input-product-name="true" id="create-product-input-name" class="form-control" value="">
+                  <h5 class="mt-1 text-right">0/120</h5>
+                </div>
+                <div class="form-group">
+                  <p class="mb-1 lead">Código interno</p>
+                  <input data-create-product-input-code="true" id="create-product-input-code" class="form-control" value="1">
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <p class="lead">Preço de venda</p>
+                    <input type="text" class="form-control" data-create-product-input-price="true" id="create-product-input-price" value="R$0,00">
+                  </div>
+                  <div class="col">
+                    <p class="lead">Preço de custos</p>
+                    <input type="text" class="form-control" data-create-product-input-cost="true" id="create-product-input-cost" value="R$0,00">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="py-3">
+                      <p class="lead py-0 m-0">Unidade</p>
+                      <div class="d-inline-block w-75 css-2b097c-container" id="create-product-select-unit">
+                        <div class="css-yk16xz-control">
+                          <div class="css-1hwfws3">
+                            <div class="css-1uccc91-singleValue">UN</div>
+                            <div class="css-1g6gooi">
+                              <div class="" style="display: inline-block;">
+                                <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+                                <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 13px; font-family: &quot;Titillium Web&quot;; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class=" css-1wy0on6">
+                            <span class=" css-1okebmr-indicatorSeparator"></span>
+                            <div aria-hidden="true" class=" css-tlfecz-indicatorContainer">
+                              <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="css-19bqh2r">
+                                <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <i title="Criar uma nova " class="fas fa-plus ml-2 text-primary" style="cursor: pointer;"></i>
+                      </div>
+                    </div>
+                    <p class="lead mb-2">Categoria</p>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="m-0 p-0 col-md-10">
+                          <select id="create-product-select-category" class="form-control">
+                            <option value="bc41e763-4796-483c-a9a4-47bb6b78ae59">Sem Categoria</option>
+                          </select>
+                        </div>
+                        <div class="m-0 p-0 col-md-2">
+                          <button id="create-product-button-create-category" type="button" class="btn btn-primary btn-block">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="py-2">
+                  <div>
+                    <p class="lead mb-2">Estoque <span class="badge badge-primary">( Produto sem estoque )</span></p>
+                    <button type="button" class="btn btn-primary">Iniciar Estoque</button>
+                  </div>
+                </div>
+                <div class="py-2">
+                  <p class="lead mb-1">NCM</p>
+                  <div id="create-product-input-ncm" class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled" style="width: 300px;">
+                    <div class="ant-select-selection ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="38b6309f-09c1-4eb7-963a-7998db08cc09" aria-expanded="false">
+                      <div class="ant-select-selection__rendered">
+                        <div unselectable="on" class="ant-select-selection__placeholder" style="display: block; user-select: none;">Busque pelo nome ou código</div>
+                        <ul>
+                          <li class="ant-select-search ant-select-search--inline">
+                            <div class="ant-select-search__field__wrap">
+                              <input type="text" class="ant-input ant-select-search__field" value="">
+                              <span class="ant-select-search__field__mirror">&nbsp;</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                        <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                          <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                            <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
+                          </svg>
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                  <a title="Consulte a tabela de NCM da SEFAZ" id="create-product-button-find-ncm" target="_blank" class="d-block" href="https://cosmos.bluesoft.com.br/ncms">Não sei o NCM</a>
+                </div>
+                <div class="py-2">
+                  <p class="lead mb-1">CFOP</p>
+                  <div id="create-product-input-cfop" class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled ant-select-allow-clear" style="width: 300px;">
+                    <div class="ant-select-selection ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="317b3325-7e79-4a75-a062-44c568683464" aria-expanded="false">
+                      <div class="ant-select-selection__rendered">
+                        <div unselectable="on" class="ant-select-selection__placeholder" style="display: block; user-select: none;">Busque pelo nome ou código</div>
+                        <ul>
+                          <li class="ant-select-search ant-select-search--inline">
+                            <div class="ant-select-search__field__wrap">
+                              <input type="text" class="ant-input ant-select-search__field" value="">
+                              <span class="ant-select-search__field__mirror">&nbsp;</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                        <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                          <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                            <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
+                          </svg>
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="my-2">Sugestões</p>
+                  <div role="group" class="w-100 btn-group">
+                    <button id="create-product-select-5101" type="button" class="btn btn-primary">5101</button>
+                    <button id="create-product-select-5102" type="button" class="btn btn-primary">5102</button>
+                  </div>
+                </div>
+                <div class="py-2">
+                  <div>
+                    <h2>ICMS</h2>
+                    <select id="create-product-select-icms" class="form-control">
+                      <option>Selecione o icms</option>
+                    </select>
+                    <button type="button" class="px-3 btn btn-primary btn-sm">
+                      <i class="fas fa-plus"></i> Criar modelo de ICMS
+                    </button>
+                  </div>
+                </div>
+                <div class="py-2">
+                  <p class="lead mb-1">CEST</p>
+                  <div class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled" style="width: 300px;">
+                    <div class="ant-select-selection ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="e08eaede-29a6-4265-ded7-9148de64983d" aria-expanded="false">
+                      <div class="ant-select-selection__rendered">
+                        <div unselectable="on" class="ant-select-selection__placeholder" style="display: block; user-select: none;">Busque pelo nome ou código</div>
+                        <ul>
+                          <li class="ant-select-search ant-select-search--inline">
+                            <div class="ant-select-search__field__wrap">
+                              <input type="text" class="ant-input ant-select-search__field" value="">
+                              <span class="ant-select-search__field__mirror">&nbsp;</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                        <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                          <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                            <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
+                          </svg>
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-2">
+                  <p class="lead">Selecionar IPI</p>
+                  <select id="create-product-select-ipi" name="ipi_select" class="form-control">
+                    <option value="none">Selecionar</option>
+                  </select>
+                  <button type="button" class="btn btn-primary btn-sm">Criar Template</button>
+                </div>
+              </div>
+            </div>
+            <div role="group" class="w-100 mt-2 btn-group">
+              <button id="create-product-button-exit-page" type="button" class="w-50 btn btn-danger">Cancelar</button>
+              &nbsp;&nbsp;
+              <button id="create-product-button-create-product" type="button" class="w-50 btn btn-primary">Salvar</button>
+            </div>
+          </div>
+          <div class="mb-5"></div>
+          <div class="sc-TFwJa NXEZ footer">
+            <div class="float-right d-none">.. <strong>909</strong> ...</div>
+            <div class="sc-bHwgHz cIXQlE">
+              <div>
+                <strong>Copyright EBI © </strong> Soluções em Tecnologia 2018-2023
+              </div>
+              <div>
+                <strong>v-0.0.1</strong>
+              </div>
+            </div>
+            <div class="">
+              <button type="button" class="sc-caSCKo Pszyf btn btn-primary">
+                <i class="fab fa-whatsapp fa-2x"></i>
+              </button>
+              <div id="footer-whatsapp-footer-button" class="sc-gisBJw fYLiOb d-none">
+                <div class="sc-kjoXOD bgbfpZ">
+                  <div class="form-group">
+                    <div class="form-label mb-2">Selecione abaixo o departamento que você deseja atendimento</div>
+                    <div class="sc-cHGsZl fjIwsV">
+                      <div class="sc-dVhcbM bJOrtq">
+                        <div class="sc-eqIVtm ekZrzN bg-info">
+                          <i class="fas fa-check text-dark"></i>
+                        </div>
+                        <div class="sc-dVhcbM hOhHgQ">Vendas e Suporte</div>
+                      </div>
+                      <div class="sc-dVhcbM bJOrtq">
+                        <div class="sc-eqIVtm ekZrzN">
+                          <i class="fas fa-check text-dark"></i>
+                        </div>
+                        <div class="sc-dVhcbM hOhHgQ">Financeiro</div>
+                      </div>
+                      <div class="sc-dVhcbM bJOrtq">
+                        <div class="sc-eqIVtm ekZrzN">
+                          <i class="fas fa-check text-dark"></i>
+                        </div>
+                        <div class="sc-dVhcbM hOhHgQ">Técnico</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="sc-cmLpLW blpgDg btn btn-primary btn-block">Entrar em contato via WhatsApp</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

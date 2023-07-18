@@ -17,8 +17,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
-    <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
+    <title>Aphagestor</title>
+    <link href="/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
         /* Chart.js */
@@ -196,7 +196,182 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="sc-iyvyFf bsfhoR">
+                  <div class="sc-hwwEjo bcXjow">
+                    <div title="Pesquisar" class="sc-eXEjpC gGJDmn fas fa-search"></div>
+                    <input placeholder="Pesquise pelo nome, código ou código de barras do item" id="pos-search-items-autocomplete" class="sc-kfGgVZ tQNap form-control" value="">
+                    <div title="Mais filtros" class="sc-esjQYD egEGNH fas fa-ellipsis-v"></div>
+                  </div>
+                  <span class="text-danger" id="c190-4a2f-a989"></span>
+                  <div class="sc-kPVwWT hjVkAK d-none">
+                    <div class="table-responsive">
+                      <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th>Cod.</th>
+                            <th>Cod. Barras</th>
+                            <th>Descrição</th>
+                            <th>Estoque</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div height="423" class="sc-ibxdXY IkNMK">
+                  <div class="sc-RefOD bPTJLH">
+                    <div class="sc-iQKALj fEEBHt">
+                      <i class="fas fa-box-open"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="sc-bwCtUz kSpVjL">
+                  <div>
+                    <div class="sc-hrWEMg dPFvkT">
+                      <div class="sc-hrWEMg sc-eTuwsz fEFWDW">Sub Total</div>
+                      <div class="sc-hrWEMg sc-gwVKww bZWmwI">R$&nbsp;0,00</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sc-hrWEMg dPFvkT">
+                      <div class="sc-hrWEMg sc-eTuwsz fEFWDW">Desconto</div>
+                      <div class="sc-hrWEMg sc-gwVKww bZWmwI">R$&nbsp;0,00</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sc-hrWEMg dPFvkT">
+                      <div class="sc-hrWEMg sc-eTuwsz fEFWDW">Total</div>
+                      <div class="sc-hrWEMg sc-gwVKww bZWmwI">R$&nbsp;0,00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-hXRMBi kJXhyY">
+            <div class="col-md-4 d-none">
+              <button type="button" class="w-100 dim py-2 btn btn-danger">Cancelar venda</button>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="w-100 dim py-2 btn btn-primary">Cliente</button>
+            </div>
+            <div class="col-md-4">
+              <button disabled="" type="button" class="w-100 dim py-2 btn btn-info">Desconto</button>
+            </div>
+            <div class="col-md-4">
+              <button disabled="" type="button" class="w-100 dim py-2 btn btn-success">Avançar</button>
+            </div>
+          </div>
+        </div>
+        <div class="mb-5"></div>
+        <div class="sc-TFwJa NXEZ footer">
+          <div class="float-right d-none">.. <strong>909</strong> ...</div>
+          <div class="sc-bHwgHz cIXQlE">
+            <div>
+              <strong>Copyright EBI © </strong> Soluções em Tecnologia 2018-2023
+            </div>
+            <div>
+              <strong>v-0.0.1</strong>
+            </div>
+          </div>
+          <div class="">
+            <button type="button" class="sc-caSCKo Pszyf btn btn-primary">
+              <i class="fab fa-whatsapp fa-2x"></i>
+            </button>
+            <div id="footer-whatsapp-footer-button" class="sc-gisBJw fYLiOb d-none">
+              <div class="sc-kjoXOD bgbfpZ">
+                <div class="form-group">
+                  <div class="form-label mb-2">Selecione abaixo o departamento que você deseja atendimento</div>
+                  <div class="sc-cHGsZl fjIwsV">
+                    <div class="sc-dVhcbM bJOrtq">
+                      <div class="sc-eqIVtm ekZrzN bg-info">
+                        <i class="fas fa-check text-dark"></i>
+                      </div>
+                      <div class="sc-fAjcbJ fzXLvC"></div>
+                    </div>
+                    <span>Parcerias e Projetos</span>
+                  </div>
+                  <div class="sc-cHGsZl fjIwsV">
+                    <div class="sc-dVhcbM bJOrtq">
+                      <div class="sc-eqIVtm ekZrzN bg-info">
+                        <i class="fas fa-check text-dark"></i>
+                      </div>
+                      <div class="sc-fAjcbJ fzXLvC"></div>
+                    </div>
+                    <span>Financeiro</span>
+                  </div>
+                  <div class="sc-cHGsZl fjIwsV">
+                    <div class="sc-dVhcbM bJOrtq">
+                      <div class="sc-eqIVtm ekZrzN bg-info">
+                        <i class="fas fa-check text-dark"></i>
+                      </div>
+                      <div class="sc-fAjcbJ fzXLvC"></div>
+                    </div>
+                    <span>Certificado Digital</span>
+                  </div>
+                  <div class="sc-cHGsZl fjIwsV">
+                    <div class="sc-dVhcbM bJOrtq">
+                      <div class="sc-eqIVtm ekZrzN bg-info">
+                        <i class="fas fa-check text-dark"></i>
+                      </div>
+                      <div class="sc-fAjcbJ fzXLvC"></div>
+                    </div>
+                    <span>Suporte Técnico</span>
+                  </div>
+                  <div class="sc-cHGsZl fjIwsV">
+                    <div class="sc-dVhcbM bJOrtq">
+                      <div class="sc-eqIVtm ekZrzN bg-info">
+                        <i class="fas fa-check text-dark"></i>
+                      </div>
+                      <div class="sc-fAjcbJ fzXLvC"></div>
+                    </div>
+                    <span>Atendimento e preços</span>
+                  </div>
+                </div>
+                <div class="d-none">
+                  <div class="form-label">Informe sua mensagem abaixo:</div>
+                  <textarea cels="4" id="textarea-input-reason-to-call-support" class="form-control"></textarea>
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary">Enviar WhatsApp <i class="fas fa-paper-plane"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

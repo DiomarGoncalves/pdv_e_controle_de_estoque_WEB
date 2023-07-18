@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,8 +196,99 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
-        </div>
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <p class="lead">Clientes</p>
+                <p class="lead">Clique <a href="/clients/create">aqui</a> para cadastrar um novo cliente</p>
+              </div>
+              <div class="col-12">
+                <span></span>
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="form-label">Nome</label>
+                      <input class="form-control" name="name" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="form-label">CPF/CNPJ</label>
+                      <input maxlength="14" class="form-control" name="cpf_cnpj" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="form-label">E-mail</label>
+                      <input class="form-control" name="email" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="form-label">Telefone</label>
+                      <input class="form-control" name="phone_number" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="form-label">Exibir até:</label>
+                      <select name="end_count" class="form-control">
+                        <option value="10">10 resultados</option>
+                        <option value="20">20 resultados</option>
+                        <option value="30">30 resultados</option>
+                        <option value="50">50 resultados</option>
+                        <option value="100">100 resultados</option>
+                        <option value="150">150 resultados</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 text-right">
+                    <button type="button" class="btn btn-primary">Pesquisar Cliente<span class="fas fa-search ml-3"></span></button>
+                  </div>
+                  <div class="d-none">
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Nome</th>
+                            <th>CPF/CNPJ</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
       </div>
     </div>
 </body>

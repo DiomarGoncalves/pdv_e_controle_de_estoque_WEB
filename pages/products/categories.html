@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,7 +196,45 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <p class="lead mb-2">Categoria</p>
+          <div class="form-group">
+            <div class="row">
+              <div class="m-0 p-0 col-md-10">
+                <select id="create-product-select-category" class="form-control">
+                  <option value="dff24bac-8ef6-4df2-96a3-ecfc48e7603c">Sem Categoria</option>
+                </select>
+              </div>
+              <div class="m-0 p-0 col-md-2">
+                <button id="create-product-button-create-category" type="button" class="btn btn-primary btn-block">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

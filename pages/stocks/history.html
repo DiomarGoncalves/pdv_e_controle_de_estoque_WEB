@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,8 +196,112 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
-        </div>
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="sc-jnlKLf jTRxqg py-2">Resumo de faturamento</h2>
+              </div>
+              <div class="col-md-4 col-lg-4 col-xs-12 mb-2">
+                <div class="sc-dqBHgY icdnHt">
+                  <div class="sc-gxMtzJ exWvuy">
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">Ano, 2023</p>
+                    </h3>
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">R$&nbsp;0,00</p>
+                    </h3>
+                  </div>
+                  <div class="sc-dfVpRl eGOpTd"></div>
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-xs-12 mb-2">
+                <div class="sc-dqBHgY icdnHt">
+                  <div class="sc-gxMtzJ exWvuy">
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">Mês de julho</p>
+                    </h3>
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">R$&nbsp;0,00</p>
+                    </h3>
+                  </div>
+                  <div class="sc-dfVpRl eGOpTd"></div>
+                </div>
+              </div>
+              <div class="col-md-4 col-lg-4 col-xs-12 mb-2">
+                <div class="sc-dqBHgY icdnHt">
+                  <div class="sc-gxMtzJ exWvuy">
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">Hoje, terça-feira</p>
+                    </h3>
+                    <h3 class="text-capitalize">
+                      <p class="sc-bbmXgH bhkUJq">R$&nbsp;0,00</p>
+                    </h3>
+                  </div>
+                  <div class="sc-dfVpRl eGOpTd"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 my-3">
+                <h2 class="sc-jnlKLf jTRxqg">Faturamento em gráficos</h2>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="chartjs-size-monitor">
+                  <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
+                  </div>
+                </div>
+                <h3 class="sc-fYxtnH iaqqAp">Vendas do mês</h3>
+                <canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" class="chartjs-render-monitor"></canvas>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="chartjs-size-monitor">
+                  <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
+                  </div>
+                </div>
+                <h3 class="sc-fYxtnH iaqqAp">Formas de pagamentos</h3>
+                <canvas height="270" width="540" class="chartjs-render-monitor" style="display: block; width: 540px; height: 270px;"></canvas>
+              </div>
+            </div>
+            <div class="row py-4">
+              <div class="col-12">
+                <h3>Veja suas últimas vendas clicando <a href="/reports/sales">aqui</a></h3>
+              </div>
+            </div>
+          </div>
+          
+        </div>        
       </div>
     </div>
 </body>

@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="favicon" href="/favicon.icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&amp;display=swap" rel="stylesheet">
-    <title>EasyGestor</title>
+    <title>Aphagestor</title>
     <link href="/pdv_e_controle_de_estoque_WEB/style.css" rel="stylesheet">
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style type="text/css">
@@ -196,7 +196,54 @@
           </div>
         </nav>
         <div id="page-wrapper" class="bg-light">
-                  <!--pagina-->
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top bg-light p-0 m-0" role="navigation">
+              <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary dim" href="#miniminze">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              <ul class="nav navbar-top-links navbar-right">
+                <li style="padding: 20px;">
+                  <span class="m-r-sm text-muted welcome-message">
+                    <strong>Bem-vindo ao Easygestor Web</strong>
+                    <span class="px-2" id="welcome-message-top-header-random-emoji-set"></span>
+                  </span>
+                </li>
+                <li>
+                  <div class="sc-rBLzX cbAcgI mr-3">
+                    <span><i class="fa fa-sign-out"></i></span>
+                    <span>Sair</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-none"></div>
+            </nav>
+          </div>
+          <div class="row">
+            <h1 class="col-12">Criar vendedor</h1>
+            <div></div>
+            <div class="col-lg-8 col-md-12">
+              <h5>Nome</h5>
+              <input placeholder="Insira o nome" id="salesperson-name-input" class="form-control" value="">
+              <h5>Email</h5>
+              <input placeholder="Insira o email" id="salesperson-email-input" class="form-control" value="">
+              <h5>Telefone</h5>
+              <input placeholder="Insira o telefone" type="number" id="salesperson-phone-input" class="form-control" value="">
+              <h5>CPF</h5>
+              <input placeholder="CPF" id="salesperson-document-input" class="form-control" value="diomarbr4@gmail.com">
+              <div>
+                <label>Senha</label>
+                <input type="password" placeholder="Senha de acesso" class="form-control mb-2" required="" id="salesperson-password-input" value="Diomar1205">
+              </div>
+            </div>
+            <div class="col-lg-12 pb-4">
+              <div role="group" class="btn-group">
+                <button id="salesperson-create-button" type="button" class="btn btn-primary">Criar vendedor</button>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
