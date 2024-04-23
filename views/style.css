@@ -1,0 +1,353 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 10px;
+}
+
+/*botão home */
+
+/* Estilo para o botão Home */
+.home {
+  margin-right: auto;
+}
+
+.home img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.home img:hover {
+  opacity: 0.7;
+}
+
+/*botão home */
+
+/* Botão de alternância de tema */
+.theme-checkbox {
+  --toggle-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 6.25em;
+  height: 3.125em;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #efefef),
+      color-stop(50%, #2a2a2a)
+    )
+    no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.438em;
+  left: 0.438em;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #efefef),
+      color-stop(50%, #2a2a2a)
+    )
+    no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 100%;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+}
+
+.theme-checkbox:checked {
+  background-position: 100%;
+}
+/* Estilo do botão */
+.theme-toggle label {
+  font-size: 14px;
+}
+
+/* Tema escuro */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.card.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+.dark-mode header {
+  background-color: #7c7c7c;
+}
+
+.dark-mode #sales-area {
+  background-color: #444;
+  color: #ddd;
+}
+
+.dark-mode #sale-summary {
+  background-color: #333;
+}
+
+/* pagina de produtos */
+/* Estilo para a lista de produtos */
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+/* Estilo para os cards de produto */
+.product-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o botão de adicionar produto */
+#add-product-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#add-product-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o modal de adicionar produto */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo para a lista de produtos em estoque */
+#stock-list {
+  margin-top: 20px;
+}
+
+/* Estilo para os cards de produto em estoque */
+.stock-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o botão de movimentação de estoque */
+#stock-movement-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#stock-movement-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o modal de movimentação de estoque */
+#stock-movement-modal {
+  display: none;
+}
+
+#stock-movement-modal .modal-content {
+  max-width: 400px;
+}
+
+/* Estilos para o cabeçalho */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Estilos para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Estilos para o formulário de lançamento de vendas */
+#sales-area {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sales-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#sales-form select,
+#sales-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#sales-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#sales-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para o resumo da venda */
+#sale-summary {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sale-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#sale-list li {
+  margin-bottom: 8px;
+}
+
+#sale-summary p {
+  margin-top: 20px;
+}
+
+#finish-sale-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#finish-sale-btn:hover {
+  background-color: #218838;
+}
