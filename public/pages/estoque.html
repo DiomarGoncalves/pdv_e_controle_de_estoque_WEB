@@ -9,7 +9,9 @@
   <body>
     <header>
       <div class="home">
-        <a href="/public/index.html"><img src="/public/images/home.png" alt="Home" /></a>
+        <a href="/public/index.html"
+          ><img src="/public/images/home.png" alt="Home"
+        /></a>
       </div>
       <h1>estoque</h1>
       <label class="switch">
@@ -19,21 +21,34 @@
     </header>
 
     <main>
-      <div class="container">
+      <div class="container-product">
         <h2>Lista de Produtos em Estoque</h2>
-        <div id="stock-list">
-          <!-- Lista de produtos em estoque será exibida aqui -->
-        </div>
         <button id="stock-movement-btn">Movimentação de Estoque</button>
+        <div id="stock-list">
+          <table id="product-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço de Custo</th>
+                <th>Preço de Venda</th>
+                <th>Codigo de Barras</th>
+              </tr>
+            </thead>
+            <tbody id="product-stock" class="product-list"></tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Pop-up de movimentação de estoque -->
       <div id="stock-movement-modal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
+          <span class="close" data-modal-id="stock-movement-modal"
+            >&times;</span
+          >
           <h2>Movimentação de Estoque</h2>
           <form id="stock-movement-form">
-            <!-- Campos do formulário de movimentação de estoque -->
+            <h1>ola</h1>
             <button type="submit">Salvar</button>
           </form>
         </div>
@@ -41,5 +56,8 @@
     </main>
 
     <script src="/public/script/script.js"></script>
+    <script>
+      
+    </script>
   </body>
 </html>

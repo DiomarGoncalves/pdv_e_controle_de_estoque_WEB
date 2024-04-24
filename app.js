@@ -4,7 +4,7 @@ const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 // Use o middleware cors
 app.use(cors());
@@ -35,24 +35,19 @@ app.post("/products", (req, res) => {
     barcode,
     family,
   } = req.body;
-  const sql = `INSERT INTO products (name, cost_price, sale_price, min_stock, max_stock, barcode, family) VALUES (?, ?, ?, ?, ?, ?, ?)`;
-  const values = [
-    name,
-    cost_price,
-    sale_price,
-    min_stock,
-    max_stock,
-    barcode,
-    family,
-  ];
-  db.run(sql, values, function (err) {
-    if (err) {
-      console.error("Erro ao adicionar o produto:", err.message);
-      return res.status(500).send("Erro ao adicionar o produto."); // Retornar um erro 500
+
+  db.run(
+    "INSERT INTO products (name, cost_price, sale_price, min_stock, max_stock, barcode, family) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    [name, cost_price, sale_price, min_stock, max_stock, barcode, family],
+    function (err) {
+      if (err) {
+        console.error("Erro ao adicionar o produto:", err.message);
+        return res.status(500).send("Erro ao adicionar o produto."); // Retornar um erro 500
+      }
+      console.log("Produto adicionado com sucesso. ID:", this.lastID);
+      return res.status(201).send("Produto adicionado com sucesso."); // Retornar um sucesso 201
     }
-    console.log("Produto adicionado com sucesso. ID:", this.lastID);
-    return res.status(201).send("Produto adicionado com sucesso."); // Retornar um sucesso 201
-  });
+  );
 });
 
 // Definir rota para recuperar todos os produtos
