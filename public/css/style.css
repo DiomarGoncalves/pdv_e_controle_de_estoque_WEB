@@ -5,13 +5,14 @@ html {
   font-family: Arial, sans-serif;
 }
 
-header{
+header {
   text-align: center;
   padding: 20px 0;
   height: 20px;
-  font-family: "Open Sans",sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-header,h1{
+header,
+h1 {
   font-size: 20px;
   font-weight: 500;
 }
@@ -179,21 +180,64 @@ body.dark-mode {
 .dark-mode #sales-table tr:hover {
   background-color: #555;
 }
-/* pagina de produtos */
-/* Estilo para a lista de produtos */
-#product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-  margin-top: 20px;
+
+.dark-mode .product-list th {
+  background-color: #333;
+  color: white;
 }
 
-/* Estilo para os cards de produto */
-.product-card {
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.dark-mode .product-list td {
+  background-color: #444;
+  color: white;
+}
+/* pagina de produtos */
+
+.container-product {
+  max-width: 800px;
+  margin: 20px auto;
+  display: grid;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+  flex-direction: column;
+}
+
+.product-list {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.product-list th,
+.product-list td {
+  min-width: 19vw;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.product-list th {
+  background-color: #f2f2f2;
+}
+
+/* Estilo para o botão de edição */
+.edit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+/* Estilo para o botão de edição ao passar o mouse */
+.edit-button:hover {
+  background-color: #0056b3;
 }
 
 /* Estilo para o botão de adicionar produto */
@@ -277,8 +321,6 @@ body.dark-mode {
   background-color: #0056b3;
 }
 
-
-
 /* Estilo para a lista de produtos em estoque */
 #stock-list {
   margin-top: 20px;
@@ -336,11 +378,6 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 20px auto;
 }
 
 /* Estilos para o formulário de lançamento de vendas */
@@ -413,14 +450,14 @@ body {
   background-color: #218838;
 }
 
-
 /* Estilos para a tabela de vendas */
 #sales-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-#sales-table th, #sales-table td {
+#sales-table th,
+#sales-table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
