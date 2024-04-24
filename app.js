@@ -4,7 +4,7 @@ const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const port = process.env.PORT || 3050;
+const port = process.env.PORT || 3000;
 
 // Use o middleware cors
 app.use(cors());

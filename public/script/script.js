@@ -65,7 +65,7 @@ document
 // Função para carregar a lista de produtos
 async function loadProductList() {
   try {
-    const response = await fetch("http://localhost:3050/products");
+    const response = await fetch("http://localhost:3000/products");
     if (!response.ok) {
       throw new Error("Erro ao carregar a lista de produtos.");
     }
@@ -78,7 +78,7 @@ async function loadProductList() {
         <td>${product.name  }</td>
         <td>${product.cost_price}</td>
         <td>${product.sale_price}</td>
-        <td class="edit-td"><button class="edit-button" data-modal-id="edit-product-modal" data-product-id="${product.id}">Editar</button></td>
+        <td><button class="edit-button" id="edit-product-modall" data-product-id="${product.id}">Editar</button></td>
       `;
       productList.appendChild(row);
     });
@@ -89,21 +89,3 @@ async function loadProductList() {
 // Carregar a lista de produtos quando a página carregar
 window.addEventListener("load", loadProductList);
 
-document.addEventListener("click", function(event) {
-  if (event.target.classList.contains("edit-button")) {
-    const productId = event.target.dataset.productId;
-    // Recupere os detalhes do produto com base no productId e preencha o pop-up de edição com esses detalhes
-    fetch(`http://localhost:3050/products/${productId}`)
-      .then(response => response.json())
-      .then(product => {
-        document.getElementById("edit-name").value = product.nome;
-        document.getElementById("edit-cost-price").value = product.cost_price;
-        document.getElementById("edit-sale-price").value = product.sale_price;
-        // Preencha outros campos conforme necessário
-        // Exiba o pop-up de edição
-        const editModal = document.getElementById("edit-product-modal");
-        editModal.style.display = "block";
-      })
-      .catch(error => console.error("Erro ao recuperar detalhes do produto:", error));
-  }
-});
