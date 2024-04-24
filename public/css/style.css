@@ -139,7 +139,7 @@ h1 {
 /* Tema escuro */
 body.dark-mode {
   background-color: #333;
-  color: #fff;
+  color: #b6b6b6;
 }
 .dark-mode a.card {
   background-color: #1d1d1da4;
@@ -164,6 +164,12 @@ body.dark-mode {
   color: #ddd;
 }
 
+.dark-mode .modal-content{
+  background-color: #202020;
+}
+.dark-mode .modal-content input{
+  background-color: #424242;
+}
 .dark-mode #sales-table th,
 .dark-mode #sales-table td {
   border-color: #555;
@@ -211,7 +217,7 @@ body.dark-mode {
 
 .product-list th,
 .product-list td {
-  min-width: 19vw;
+  min-width: 15vw;
   text-align: center;
   border: 1px solid #ddd;
 }
@@ -268,7 +274,7 @@ body.dark-mode {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fcfcfc;
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;

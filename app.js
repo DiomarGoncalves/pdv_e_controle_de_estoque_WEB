@@ -65,24 +65,6 @@ app.get("/products", (req, res) => {
 
 // Definir outras rotas conforme necessário...
 
-// Rota para atualizar um produto existente
-app.put("/products/{productId}", (req, res) => {
-  const productId = req.params.id;
-  const { name, cost_price, sale_price, /* Adicione mais atributos conforme necessário */ } = req.body;
-
-  const sql = `UPDATE products SET name = ?, cost_price = ?, sale_price = ? WHERE id = ?`;
-  const values = [name, cost_price, sale_price, productId];
-
-  db.run(sql, values, function (err) {
-    if (err) {
-      console.error("Erro ao editar o produto:", err.message);
-      return res.status(500).send("Erro ao editar o produto.");
-    }
-    console.log("Produto editado com sucesso. ID:", productId);
-    return res.status(200).send("Produto editado com sucesso.");
-  });
-});
-
 // Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
