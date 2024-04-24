@@ -5,11 +5,16 @@ html {
   font-family: Arial, sans-serif;
 }
 
-header {
+header{
   text-align: center;
   padding: 20px 0;
+  height: 20px;
+  font-family: "Open Sans",sans-serif;
 }
-
+header,h1{
+  font-size: 20px;
+  font-weight: 500;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -27,7 +32,7 @@ header {
   height: 300px;
   margin: 10px;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #0000005e;
   border-radius: 10px;
   text-decoration: none;
   color: #333;
@@ -69,8 +74,8 @@ header {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 6.25em;
-  height: 3.125em;
+  width: 4.25em;
+  height: 2.125em;
   background: -webkit-gradient(
       linear,
       left top,
@@ -94,8 +99,8 @@ header {
 
 .theme-checkbox::before {
   content: "";
-  width: 2.25em;
-  height: 2.25em;
+  width: 1.25em;
+  height: 1.25em;
   position: absolute;
   top: 0.438em;
   left: 0.438em;
@@ -118,7 +123,7 @@ header {
 }
 
 .theme-checkbox:checked::before {
-  left: calc(100% - 2.25em - 0.438em);
+  left: calc(120% - 2.25em - 0.438em);
   background-position: 0;
 }
 
@@ -135,10 +140,9 @@ body.dark-mode {
   background-color: #333;
   color: #fff;
 }
-
-.card.dark-mode {
-  background-color: #222;
-  color: #fff;
+.dark-mode a.card {
+  background-color: #1d1d1da4;
+  color: #ddd;
 }
 .dark-mode header {
   background-color: #7c7c7c;
@@ -153,6 +157,28 @@ body.dark-mode {
   background-color: #333;
 }
 
+/* Estilos para o tema escuro */
+.dark-mode {
+  background-color: #222;
+  color: #ddd;
+}
+
+.dark-mode #sales-table th,
+.dark-mode #sales-table td {
+  border-color: #555;
+}
+
+.dark-mode #sales-table th {
+  background-color: #444;
+}
+
+.dark-mode #sales-table tr:nth-child(even) {
+  background-color: #333;
+}
+
+.dark-mode #sales-table tr:hover {
+  background-color: #555;
+}
 /* pagina de produtos */
 /* Estilo para a lista de produtos */
 #product-list {
@@ -184,7 +210,7 @@ body.dark-mode {
   background-color: #0056b3;
 }
 
-/* Estilo para o modal de adicionar produto */
+/* Estilos para o popup */
 .modal {
   display: none;
   position: fixed;
@@ -194,14 +220,18 @@ body.dark-mode {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 20% auto;
+  background-color: #fefefe;
+  margin: 10% auto;
   padding: 20px;
+  border: 1px solid #888;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close {
@@ -213,10 +243,41 @@ body.dark-mode {
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Estilos para os inputs */
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+
 
 /* Estilo para a lista de produtos em estoque */
 #stock-list {
@@ -350,4 +411,29 @@ body {
 
 #finish-sale-btn:hover {
   background-color: #218838;
+}
+
+
+/* Estilos para a tabela de vendas */
+#sales-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#sales-table th, #sales-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#sales-table th {
+  background-color: #f2f2f2;
+}
+
+#sales-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#sales-table tr:hover {
+  background-color: #ddd;
 }
