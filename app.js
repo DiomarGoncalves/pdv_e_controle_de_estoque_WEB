@@ -63,7 +63,37 @@ app.get("/products", (req, res) => {
   });
 });
 
-// Definir outras rotas conforme necessário...
+// Definir rota para atualizar o estoque do produto
+app.put("/stock/:id", (req, res) => {
+  const productId = req.params.id;
+  const { quantity } = req.body;
+
+  db.run(
+    "UPDATE stock SET quantity = ? WHERE product_id = ?",
+    [quantity, productId],
+    function (err) {
+      if (err) {
+        console.error("Erro ao atualizar o estoque do produto:", err.message);
+        return res.status(500).send("Erro ao atualizar o estoque do produto.");
+      }
+      console.log("Estoque do produto atualizado com sucesso.");
+      return res.status(200).send("Estoque do produto atualizado com sucesso.");
+    }
+  );
+});
+
+// Definir rota para recuperar o estoque dos produtos
+app.get("/stock", (req, res) => {
+  const sql = "SELECT * FROM stock";
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.error("Erro ao recuperar o estoque dos produtos:", err.message);
+      res.status(500).send("Erro ao recuperar o estoque dos produtos.");
+    } else {
+      res.json(rows);
+    }
+  });
+});
 
 // Iniciar o servidor
 app.listen(port, () => {

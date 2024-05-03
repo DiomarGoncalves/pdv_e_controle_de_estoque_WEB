@@ -5,11 +5,15 @@ html {
   font-family: Arial, sans-serif;
 }
 
+/* Estilos para o cabeçalho */
 header {
-  text-align: center;
-  padding: 20px 0;
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
   height: 20px;
-  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header,
 h1 {
@@ -217,7 +221,7 @@ body.dark-mode {
 
 .product-list th,
 .product-list td {
-  min-width: 15vw;
+  min-width: 1%;
   text-align: center;
   border: 1px solid #ddd;
 }
