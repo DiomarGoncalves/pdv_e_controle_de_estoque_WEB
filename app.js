@@ -24,7 +24,7 @@ const db = new sqlite3.Database("database/database.db", (err) => {
 
 // Definir rota para adicionar um novo produto
 app.post("/products", (req, res) => {
-  console.log("Dados recebidos no servidor:", req.body); // Adiciona este log para verificar os dados recebidos
+  console.log("Dados recebidos no servidor:", req.body);
 
   const {
     name,
@@ -42,13 +42,29 @@ app.post("/products", (req, res) => {
     function (err) {
       if (err) {
         console.error("Erro ao adicionar o produto:", err.message);
-        return res.status(500).send("Erro ao adicionar o produto."); // Retornar um erro 500
+        return res.status(500).send("Erro ao adicionar o produto.");
       }
       console.log("Produto adicionado com sucesso. ID:", this.lastID);
-      return res.status(201).send("Produto adicionado com sucesso."); // Retornar um sucesso 201
+
+      // Após adicionar o produto com sucesso, adicionamos um registro de estoque correspondente
+      const productId = this.lastID; // ID do último produto adicionado
+      const initialQuantity = 0; // Quantidade inicial do estoque
+      db.run(
+        "INSERT INTO stock (product_id, quantity) VALUES (?, ?)",
+        [productId, initialQuantity],
+        function (err) {
+          if (err) {
+            console.error("Erro ao adicionar o estoque do produto:", err.message);
+            return res.status(500).send("Erro ao adicionar o estoque do produto.");
+          }
+          console.log("Estoque do produto adicionado com sucesso.");
+          return res.status(201).send("Produto adicionado com sucesso.");
+        }
+      );
     }
   );
 });
+
 
 // Definir rota para recuperar todos os produtos
 app.get("/products", (req, res) => {
@@ -78,12 +94,12 @@ app.put("/stock/:id", (req, res) => {
       }
       console.log("Estoque do produto atualizado com sucesso.");
       return res.status(200).send("Estoque do produto atualizado com sucesso.");
-    }
+    },
   );
 });
 
 // Definir rota para recuperar o estoque dos produtos
-app.get("/stock", (req, res) => {
+app.get("/stock", (req,res) => {
   const sql = "SELECT * FROM stock";
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -95,7 +111,20 @@ app.get("/stock", (req, res) => {
   });
 });
 
+app.get("/sales", (req, res) => {
+  const sql = "SELECT * FROM sales";
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.error("Erro ao recuperar as vendas dos produtos:", err.message);
+      res.status(500).send("Erro ao recuperar as vendas dos produtos.");
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 // Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
+

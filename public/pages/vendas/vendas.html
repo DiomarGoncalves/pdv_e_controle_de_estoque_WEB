@@ -19,24 +19,27 @@
       </header>
   
   <main>
-    <div class="container">
-      <h2>Todas as Vendas</h2>
-      <table id="sales-table">
+    <div class="container-product">
+      <h1>produtos vendidos</h1>
+      <table id="product-table">
         <thead>
           <tr>
+            <th>ID</th>
+            <th>Nome</th>
             <th>Data</th>
-            <th>Produtos</th>
-            <th>Forma de Pagamento</th>
+            <th>Forma de pagamento</th>
+            <th>Quantidade</th>
             <th>Total</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- As vendas serão listadas aqui -->
+        <tbody id="sales-list" class="product-list">
+          <!-- Lista de produtos será exibida aqui -->
         </tbody>
       </table>
     </div>
   </main>
 
   <script src="/public/script/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
