@@ -26,14 +26,16 @@ const productApp = {
       .addEventListener("click", this.openModal.bind(this));
 
     // Adicionar evento ao botão de fechar do modal
-    document.querySelector(".close").addEventListener("click", this.closeModal.bind(this));
+    document
+      .querySelector(".close")
+      .addEventListener("click", this.closeModal.bind(this));
 
     // Adicionar evento de envio do formulário de adicionar produto
     document
       .getElementById("add-product-form")
       .addEventListener("submit", this.InsertNewProduct.bind(this));
 
-    // Adicionar evento de clique aos botões de edição
+    // Adicionar evento de clique aos botões de edição na tabela de produtos
     document.querySelectorAll(".edit-button").forEach((button) => {
       button.addEventListener("click", (event) => {
         const productId = event.target.dataset.productId;
@@ -91,24 +93,35 @@ const productApp = {
 
   loadProductList: async function () {
     try {
-      const response = await fetch("http://localhost:3000/products");
-      if (!response.ok) {
-        throw new Error("Erro ao carregar a lista de produtos.");
+      const responseProducts = await fetch("http://localhost:3000/products");
+      const responseStock = await fetch("http://localhost:3000/stock");
+
+      if (!responseProducts.ok || !responseStock.ok) {
+        throw new Error("Erro ao carregar os produtos ou o estoque.");
       }
-      const data = await response.json();
+
+      const dataProducts = await responseProducts.json();
+      const dataStock = await responseStock.json();
+
       const productList = document.getElementById("product-list");
       productList.innerHTML = "";
-      data.forEach((product) => {
+      dataProducts.forEach((product) => {
+        const stockItem = dataStock.find(
+          (item) => item.product_id === product.id
+        );
+        const stockQuantity = stockItem ? stockItem.quantity : 0;
+
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>${product.id}</td>
           <td>${product.name}</td>
           <td>${product.cost_price}</td>
           <td>${product.sale_price}</td>
-          <td>${product.quantity}</td>
+          <td class="editable" contenteditable="true" data-product-id="${product.id}">${stockQuantity}</td>
           <td>${product.barcode}</td>
           <td>${product.family}</td>
-          <td><button class="edit-button" data-product-id="${product.id}">Editar</button></td>
+          <td><button class="edit-button" id="${product.id}">Editar</button></td>
+
         `;
         productList.appendChild(row);
       });
@@ -131,13 +144,16 @@ const productApp = {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/products/${formData.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `http://localhost:3000/products/${formData.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
         throw new Error("Ocorreu um erro ao editar o produto.");
       }
