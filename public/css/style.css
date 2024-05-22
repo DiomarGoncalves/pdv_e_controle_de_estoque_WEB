@@ -213,23 +213,6 @@ body.dark-mode {
   flex-direction: column;
 }
 
-.product-list {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-.product-list th,
-.product-list td {
-  min-width: 1%;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-.product-list th {
-  background-color: #f2f2f2;
-}
-
 /* Estilo para o botão de edição */
 .edit-button {
   background-color: #007bff;
@@ -458,29 +441,4 @@ body {
 
 #finish-sale-btn:hover {
   background-color: #218838;
-}
-
-/* Estilos para a tabela de vendas */
-#sales-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#sales-table th,
-#sales-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#sales-table th {
-  background-color: #f2f2f2;
-}
-
-#sales-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-#sales-table tr:hover {
-  background-color: #ddd;
 }
