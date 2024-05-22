@@ -352,7 +352,7 @@ body.dark-mode {
 }
 
 /* Estilos para o cabeçalho */
-header {
+header,.header {
   background-color: #007bff;
   color: #fff;
   padding: 20px;

@@ -1,102 +1,113 @@
-const pdvApp = {
-  init: function () {
-    this.loadProductList();
+document.addEventListener("DOMContentLoaded", () => {
+  const salesForm = document.getElementById("sales-form");
+  const productSelect = document.getElementById("product");
+  const saleList = document.getElementById("sale-list");
+  const totalValue = document.getElementById("total-value");
+  const finishSaleBtn = document.getElementById("finish-sale-btn");
 
-    document
-      .getElementById("sales-form")
-      .addEventListener("submit", this.handleAddProduct.bind(this));
-    document
-      .getElementById("finish-sale-btn")
-      .addEventListener("click", this.finishSale.bind(this));
+  let products = [];
+  let sales = [];
+  let total = 0;
 
-    this.saleItems = [];
-  },
-
-  loadProductList: async function () {
+  const loadProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/products");
+      const response = await fetch("http://localhost:3300/products");
       if (!response.ok) {
-        throw new Error("Erro ao carregar os produtos.");
+        throw new Error("Erro ao carregar produtos");
       }
-      const products = await response.json();
-      const productSelect = document.getElementById("product");
-      productSelect.innerHTML =
-        '<option value="" disabled selected>Selecione um produto</option>';
+      products = await response.json();
+
       products.forEach((product) => {
         const option = document.createElement("option");
         option.value = product.id;
-        option.textContent = product.name;
+        option.textContent = `${product.name} - R$${product.sale_price.toFixed(2)}`;
         productSelect.appendChild(option);
       });
     } catch (error) {
-      console.error("Erro ao carregar produtos:", error.message);
+      console.error("Erro ao carregar produtos:", error);
     }
-  },
+  };
 
-  handleAddProduct: function (event) {
+  const updateTotal = () => {
+    total = sales.reduce((sum, sale) => sum + sale.total, 0);
+    totalValue.textContent = `Total: R$${total.toFixed(2)}`;
+  };
+
+  const addSale = (sale) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${sale.quantity} x ${sale.productName} - R$${sale.total.toFixed(2)}`;
+    saleList.appendChild(listItem);
+    updateTotal();
+  };
+
+  salesForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const productSelect = document.getElementById("product");
-    const quantityInput = document.getElementById("quantity");
-    const paymentMethodSelect = document.getElementById("payment-method");
+    const productId = parseInt(productSelect.value);
+    const quantity = parseInt(document.getElementById("quantity").value);
+    const paymentMethod = document.getElementById("payment-method").value;
 
-    const productId = productSelect.value;
-    const productName = productSelect.options[productSelect.selectedIndex].text;
-    const quantity = quantityInput.value;
-    const paymentMethod = paymentMethodSelect.value;
-
-    if (!productId || !quantity || !paymentMethod) {
-      alert("Preencha todos os campos.");
+    const product = products.find((p) => p.id === productId);
+    if (!product) {
+      alert("Produto inválido");
       return;
     }
 
-    const saleItem = {
+    // Verificar o estoque antes de adicionar ao resumo da venda
+    try {
+      const response = await fetch(`http://localhost:3300/stock/${productId}`);
+      if (!response.ok) {
+        throw new Error("Erro ao verificar o estoque");
+      }
+      const stock = await response.json();
+      if (stock.quantity < quantity) {
+        alert("Estoque insuficiente para esse produto.");
+        return;
+      }
+    } catch (error) {
+      console.error("Erro ao verificar o estoque:", error);
+      alert("Erro ao verificar o estoque.");
+      return;
+    }
+
+    const total = product.sale_price * quantity;
+
+    const sale = {
       productId,
-      productName,
-      quantity: parseInt(quantity, 10),
+      quantity,
       paymentMethod,
+      total,
+      productName: product.name,
     };
 
-    this.saleItems.push(saleItem);
-    this.updateSaleSummary();
-  },
+    sales.push(sale);
+    addSale(sale);
+    salesForm.reset();
+  });
 
-  updateSaleSummary: function () {
-    const saleList = document.getElementById("sale-list");
-    const totalValueElement = document.getElementById("total-value");
-    saleList.innerHTML = "";
-
-    let total = 0;
-    this.saleItems.forEach((item) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${item.quantity} x ${item.productName} - ${item.paymentMethod}`;
-      saleList.appendChild(listItem);
-
-      total += item.quantity * item.productPrice;
-    });
-
-    totalValueElement.textContent = `Total: R$ ${total.toFixed(2)}`;
-  },
-
-  finishSale: async function () {
+  finishSaleBtn.addEventListener("click", async () => {
     try {
-      const response = await fetch("http://localhost:3000/sales", {
+      const response = await fetch("http://localhost:3300/sales", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ items: this.saleItems }),
+        body: JSON.stringify({ items: sales }),
       });
+
       if (!response.ok) {
-        throw new Error("Erro ao finalizar a venda.");
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
       }
 
-      alert("Venda finalizada com sucesso.");
-      this.saleItems = [];
-      this.updateSaleSummary();
+      alert("Venda finalizada com sucesso!");
+      sales = [];
+      saleList.innerHTML = "";
+      updateTotal();
     } catch (error) {
-      console.error("Erro ao finalizar a venda:", error.message);
+      console.error("Erro ao finalizar a venda:", error);
+      alert(error.message);
     }
-  },
-};
+  });
 
-pdvApp.init();
+  loadProducts();
+});

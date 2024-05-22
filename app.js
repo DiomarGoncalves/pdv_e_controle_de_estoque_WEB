@@ -5,7 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3300;
 
 // Use o middleware cors
 app.use(cors());
@@ -83,6 +83,25 @@ app.get("/products", (req, res) => {
   });
 });
 
+// Rota para verificar o estoque de um produto específico
+app.get("/stock/:productId", (req, res) => {
+  const productId = req.params.productId;
+
+  db.get("SELECT quantity FROM stock WHERE product_id = ?", [productId], (err, row) => {
+    if (err) {
+      console.error("Erro ao obter o estoque:", err.message);
+      return res.status(500).send("Erro ao obter o estoque.");
+    }
+
+    if (!row) {
+      return res.status(404).send("Estoque não encontrado.");
+    }
+
+    res.json(row);
+  });
+});
+
+
 // Definir rota para atualizar o estoque do produto
 app.put("/stock/:id", (req, res) => {
   const productId = req.params.id;
@@ -127,53 +146,95 @@ app.get("/sales", (req, res) => {
   });
 });
 
-// Adicionar rota para registrar uma venda
-app.post("/sales", async (req, res) => {
+app.post("/sales", (req, res) => {
   const sales = req.body.items;
-  const db = new sqlite3.Database("database/database.db");
+
+  const db = new sqlite3.Database("database/database.db", sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+      console.error("Erro ao conectar ao banco de dados:", err.message);
+      return res.status(500).send("Erro ao conectar ao banco de dados.");
+    }
+  });
 
   db.serialize(() => {
     const stmt = db.prepare(
       "INSERT INTO sales (product_id, quantityS, payment, total) VALUES (?, ?, ?, ?)"
     );
 
-    try {
-      sales.forEach(async (sale) => {
-        const { productId, quantity, paymentMethod } = sale;
-
-        // Obtenha o preço de venda do produto
-        db.get("SELECT sale_price FROM products WHERE id = ?", [productId], (err, row) => {
+    const processSale = (index) => {
+      if (index >= sales.length) {
+        stmt.finalize((err) => {
           if (err) {
-            throw err;
+            console.error("Erro ao finalizar a declaração:", err.message);
+            return res.status(500).send("Erro ao finalizar a declaração.");
+          }
+          db.close((err) => {
+            if (err) {
+              console.error("Erro ao fechar o banco de dados:", err.message);
+              return res.status(500).send("Erro ao fechar o banco de dados.");
+            }
+            res.status(201).send("Venda registrada com sucesso.");
+          });
+        });
+        return;
+      }
+
+      const sale = sales[index];
+      const { productId, quantity, paymentMethod } = sale;
+
+      db.get("SELECT sale_price FROM products WHERE id = ?", [productId], (err, row) => {
+        if (err) {
+          console.error("Erro ao obter o preço de venda:", err.message);
+          return res.status(500).send("Erro ao obter o preço de venda.");
+        }
+
+        if (!row) {
+          console.error("Produto não encontrado para ID:", productId);
+          return res.status(500).send("Produto não encontrado.");
+        }
+
+        const total = row.sale_price * quantity;
+
+        // Verificar o estoque
+        db.get("SELECT quantity FROM stock WHERE product_id = ?", [productId], (err, stockRow) => {
+          if (err) {
+            console.error("Erro ao obter o estoque:", err.message);
+            return res.status(500).send("Erro ao obter o estoque.");
           }
 
-          const total = row.sale_price * quantity;
+          if (!stockRow) {
+            console.error("Estoque não encontrado para o produto:", productId);
+            return res.status(500).send("Estoque não encontrado.");
+          }
 
-          // Insira a venda
+          if (stockRow.quantity < quantity) {
+            console.error(`Estoque insuficiente para o produto: ${productId}`);
+            return res.status(400).send(`Estoque insuficiente para o produto: ${productId}`);
+          }
+
           stmt.run([productId, quantity, paymentMethod, total], (err) => {
             if (err) {
-              throw err;
+              console.error("Erro ao registrar a venda:", err.message);
+              return res.status(500).send("Erro ao registrar a venda.");
             }
 
-            // Atualize o estoque do produto
             db.run("UPDATE stock SET quantity = quantity - ? WHERE product_id = ?", [quantity, productId], (err) => {
               if (err) {
-                throw err;
+                console.error("Erro ao atualizar o estoque:", err.message);
+                return res.status(500).send("Erro ao atualizar o estoque.");
               }
+
+              processSale(index + 1);
             });
           });
         });
       });
+    };
 
-      stmt.finalize();
-      db.close();
-      res.status(201).send("Venda registrada com sucesso.");
-    } catch (error) {
-      console.error("Erro ao registrar a venda:", error.message);
-      res.status(500).send("Erro ao registrar a venda.");
-    }
+    processSale(0);
   });
 });
+
 
 // Iniciar o servidor
 app.listen(port, () => {
