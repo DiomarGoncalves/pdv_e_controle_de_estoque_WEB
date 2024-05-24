@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loadProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3300/products");
+      const response = await fetch("http://localhost:3000/products");
       if (!response.ok) {
         throw new Error("Erro ao carregar produtos");
       }
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Verificar o estoque antes de adicionar ao resumo da venda
     try {
-      const response = await fetch(`http://localhost:3300/stock/${productId}`);
+      const response = await fetch(`http://localhost:3000/stock/${productId}`);
       if (!response.ok) {
         throw new Error("Erro ao verificar o estoque");
       }
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   finishSaleBtn.addEventListener("click", async () => {
     try {
-      const response = await fetch("http://localhost:3300/sales", {
+      const response = await fetch("http://localhost:3000/sales", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
